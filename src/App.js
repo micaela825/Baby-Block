@@ -32,7 +32,7 @@ class App extends Component {
       value: web3.utils.toWei(this.state.value, "ether")
     });
 
-    this.setState({ message: "You have been entered!" });
+    this.setState({ message: "You're in the race!" });
   };
 
   onClick = async () => {
@@ -49,36 +49,42 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Lottery Contract</h2>
-        <p>
-          This contract is managed by {this.state.manager}. There are currently
-          {this.state.players.length} people entered, competing to win
-          {web3.utils.fromWei(this.state.balance, "ether")} ether!
+      <div className="textBody">
+        <h2 id="App-header">Play the guessing game!</h2>
+        <p className="headText">
+          <div>This game is managed by the contract:</div>
+          <div> {this.state.manager}.</div>
+          <br />
+          <div>Right now {this.state.players.length} people are playing.</div>
+          <div>
+            Enter to win {web3.utils.fromWei(this.state.balance, "ether")}{" "}
+            ether!
+          </div>
         </p>
 
         <hr />
 
-        <form onSubmit={this.onSubmit}>
-          <h4>Want to try your luck?</h4>
+        <div id="bottom">
+          <form onSubmit={this.onSubmit}>
+            <h4>Submit your guess!</h4>
+            <div>
+              <label>Pay at least .02 ether to play:</label>
+              <input
+                value={this.state.value}
+                onChange={event => this.setState({ value: event.target.value })}
+              />
+            </div>
+            <button>Play</button>
+          </form>
+
+          <hr />
+          <h4>Time to pick a winner?</h4>
           <div>
-            <label>Amount of ether to enter</label>
-            <input
-              value={this.state.value}
-              onChange={event => this.setState({ value: event.target.value })}
-            />
+            <button onClick={this.onClick}>Pick a winner!</button>
           </div>
-          <button>Enter</button>
-        </form>
 
-        <hr />
-
-        <h4>Ready to pick a winner?</h4>
-        <button onClick={this.onClick}>Pick a winner!</button>
-
-        <hr />
-
-        <h1>{this.state.message}</h1>
+          <h1>{this.state.message}</h1>
+        </div>
       </div>
     );
   }

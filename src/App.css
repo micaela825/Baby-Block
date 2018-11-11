@@ -7,26 +7,35 @@
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.textBody {
+  font-family: "Kaushan Script", cursive;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 100%;
+  font-size: 25px;
+  background-image: url(https://cdn.pixabay.com/photo/2017/07/27/23/02/background-2547101_1280.jpg);
 }
 
-.App-link {
-  color: #61dafb;
+#App-header {
+  min-height: 20vh;
+  font-size: calc(30px + 4vmin);
+  color: #4e4e4e;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.headText {
+  font-size: 25px;
+  font-family: "Merriweather", serif;
+}
+
+#bottom {
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 10%;
 }
