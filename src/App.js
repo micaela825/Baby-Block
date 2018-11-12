@@ -20,9 +20,8 @@ class App extends Component {
     this.setState({ manager, players, balance });
   }
 
-  onSubmit = async event => {
+  handleSubmit = async event => {
     event.preventDefault();
-
     const accounts = await web3.eth.getAccounts();
 
     this.setState({ message: "Waiting on transaction success..." });
@@ -32,10 +31,10 @@ class App extends Component {
       value: web3.utils.toWei(this.state.value, "ether")
     });
 
-    this.setState({ message: "You have been entered!" });
+    this.setState({ message: "You're in the race!" });
   };
 
-  onClick = async () => {
+  handleClick = async () => {
     const accounts = await web3.eth.getAccounts();
 
     this.setState({ message: "Waiting on transaction success..." });
@@ -49,36 +48,53 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Lottery Contract</h2>
-        <p>
-          This contract is managed by {this.state.manager}. There are currently
-          {this.state.players.length} people entered, competing to win
-          {web3.utils.fromWei(this.state.balance, "ether")} ether!
+      <div className="textBody">
+        <h2 id="App-header">Guess the due date!</h2>
+        <p className="headText">
+          <div>This game is managed by the contract:</div>
+          <div> {this.state.manager}.</div>
+          <br />
+          <div>Right now {this.state.players.length} people are playing.</div>
+          <div>
+            Guess the due date to win{" "}
+            {web3.utils.fromWei(this.state.balance, "ether")} ether!
+          </div>
         </p>
 
-        <hr />
+        <div id="bottom">
+          <div id="submit">
+            <form onSubmit={this.handleSubmit}>
+              <h4>Submit your guess!</h4>
+              <div>
+                <label>Enter your guess:</label>
+                <br />
 
-        <form onSubmit={this.onSubmit}>
-          <h4>Want to try your luck?</h4>
-          <div>
-            <label>Amount of ether to enter</label>
-            <input
-              value={this.state.value}
-              onChange={event => this.setState({ value: event.target.value })}
-            />
+                <input type="date" name="dueDate" />
+              </div>
+              <div>
+                <label>Pay at least .02 ether to play:</label>
+                <br />
+
+                <input
+                  value={this.state.value}
+                  onChange={event =>
+                    this.setState({ value: event.target.value })
+                  }
+                />
+              </div>
+              <button>Play</button>
+            </form>
           </div>
-          <button>Enter</button>
-        </form>
 
-        <hr />
+          <div id="winner">
+            <h4>Time to pick a winner?</h4>
+            <div id="message">{this.state.message}</div>
 
-        <h4>Ready to pick a winner?</h4>
-        <button onClick={this.onClick}>Pick a winner!</button>
-
-        <hr />
-
-        <h1>{this.state.message}</h1>
+            <div>
+              <button onClick={this.handleClick}>Pick a winner!</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
