@@ -1,41 +1,87 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .textBody {
   font-family: "Kaushan Script", cursive;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  font-size: 25px;
-  background-image: url(https://cdn.pixabay.com/photo/2017/07/27/23/02/background-2547101_1280.jpg);
+  background-image: url(https://i.etsystatic.com/6405308/r/il/7dfccd/1066657508/il_570xN.1066657508_9b85.jpg);
+  background-repeat: repeat-y;
+  background-size: 40%;
+  background-position: right;
 }
 
 #App-header {
   min-height: 20vh;
   font-size: calc(30px + 4vmin);
   color: #4e4e4e;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 50px;
 }
 
 .headText {
   font-size: 25px;
   font-family: "Merriweather", serif;
+  margin-left: 35px;
+  width: 600px;
 }
 
 #bottom {
-  display: flex;
-  flex-direction: center;
-  align-items: center;
-  justify-content: center;
+  font-size: 25px;
+  font-family: "Merriweather", serif;
+  margin-left: 35px;
+  width: 600px;
+}
+
+#bottom input {
+  /* background-color: fuchsia; */
+  border-radius: 15px;
+  padding: 5px;
+  margin: 10px;
+  height: 30px;
+  width: 150px;
 }
 
 button {
-  padding: 10%;
+  border-radius: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  height: 50px;
+  width: 175px;
+  text-align: center;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  /* align-content: left; */
+  font-family: "Kaushan Script", cursive;
+  color: rgb(87, 87, 87);
+  background-color: rgb(218, 198, 26);
+}
+
+#authbtn button {
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 25px;
+  color: #db6097;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  align-content: left;
+  width: 150px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(7, 151, 115);
+}
+
+#winner #message {
+  color: rgb(7, 151, 115);
+  font-size: 20px;
+  /* font-family: "Kaushan Script", cursive; */
+  font-family: "Merriweather", serif;
+  font-style: italic;
+  text-align: right;
+}
+
+#winner h4 {
+  margin-bottom: 0;
 }
